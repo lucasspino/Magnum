@@ -9,6 +9,7 @@
  --white-color: rgb(255, 255, 255);
  --white-alpha-color: rgba(255, 255, 255, 0.5);
  --black-alpha-color: rgba(0, 0, 0, 0.5);
+ --black-alpha-color-ps: rgba(0, 0, 0, 0.29);
  --font: "Raleway", sans-serif;
  --max-width:1200px;
  --header-heigth: 4rem;
@@ -182,7 +183,7 @@ p {
 .box-shadow-1 {
     box-shadow: 0.25rem 0.25rem 1rem rgba(0, 0, 0, 0.25);
 }
-.hero-image-btn{
+.btn{
     border-radius: .5rem;
     padding: 1rem;
     display: inline-block;
@@ -220,6 +221,55 @@ p {
 .img-magnum{
     max-height: var(--header-heigth);
 }
+
+/* *** Productos y servicios *** */
+.services-products{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+    text-align: center;
+    min-height: 50vh;
+}
+.aside-pys{
+    padding: 1.5rem 1.3rem;
+}
+.aside-pys h1, p{
+    color: #141312;
+    margin: 1.7rem auto;
+}
+
+.hero-image-fletes{
+    background-image: var(--image-fletes);
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+.hero-image-hidrogrua{
+    background-image: var(--image-hidrogrua);
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+.servicios-opacity{
+    width: 100%;
+    min-height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: var(--black-alpha-color-ps);
+}
+.servicios-opacity h2{
+    font-size: 32px;
+    font-weight: bold;
+    color: var(--white-color);
+}
+
 @media screen and (min-widht: 768px){
     
 }
@@ -245,7 +295,26 @@ p {
         display: flex;
         align-items: center;
     }
-    
-    
+
+    /* *** PRODUCTOS Y SERVICIOS *** */
+
+    .services-products{
+        display: grid;
+        grid-template-columns: repeat(3, 30%);
+        justify-content: space-between;
+        align-content: center;
+        grid-template-areas: 
+        "hidrogrua" "magnum" "fletes"
+        ;
+    }
+    .hero-image-hidrogrua{
+        grid-area: hidrogrua;
+    }
+    .aside-pys{
+        grid-area: magnum;
+    }
+    .hero-image-flete{
+        grid-area: fletes;
+    }
     
 }
