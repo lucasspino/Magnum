@@ -7,7 +7,7 @@
  --second-color:#141312;
  --second-text-alpha-color: #1f1e1d9f;
  --white-color: rgb(255, 255, 255);
- --first-alpha-color:#ff914d9c;
+ --first-alpha-color:#ff914dc2;
  --white-alpha-color: rgba(255, 255, 255, 0.5);
  --black-alpha-color: rgba(0, 0, 0, 0.5);
  --black-alpha-color-ps: rgba(0, 0, 0, 0.29);
@@ -78,13 +78,12 @@ img {
 p {
     line-height: 1.6;
 }
-/* *** COMPONENTS *** */ 
 /* *** HERO IMAGE *** */
 .hero-image{
-    background-image: var(--image);
+    background-image: url(./assets/heroimage.jpg);
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: center;
+    background-position:left;
     background-attachment: fixed;
 }
 .hero-image-logo{
@@ -178,7 +177,22 @@ p {
         background-color: transparent;
     }
 }
-
+/* *** MODAL *** */
+.modal {
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--black-alpha-color);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 1s;
+  }
 
 /* *** UTILITIES *** */ 
 .box-shadow-1 {
@@ -205,7 +219,16 @@ p {
 }
 .section {
     padding: 2rem 1rem;
-  }
+}
+.section-title {
+    border-top: thin solid var(--first-color);
+    border-bottom: thin solid var(--first-color);
+    margin: 2rem auto;
+    padding: 0.5rem 1rem;
+    width: 250px;
+    text-align: center;
+    color: var(--title-color);
+}
 
 @media screen and (min-width: 1024px){
     .full-lg-screen{
@@ -237,12 +260,14 @@ p {
     max-height: var(--header-heigth);
 }
 
+
 /* *** Productos y servicios *** */
 .products-card{
     position: relative;
     width: 100%;
     margin: 0 auto;
     display: block;
+    text-decoration: none;
 }
 .products-card img{
     width: 100%;
@@ -257,7 +282,7 @@ p {
     height: 100%;
     padding: 1rem;
     background-color: var(--first-alpha-color);
-    color: var(--white-color);
+    color: var(--second-color);
     opacity: 0;
     pointer-events: none;
     transition: all .5s ease-in-out;  
@@ -271,6 +296,18 @@ p {
     height: 100%;
     padding: 1rem;
     border:thin solid var(--white-color);
+}
+.product-container-title{
+    display: block;
+    text-align: center;
+}
+.product-title{
+    margin-top: 1.5rem;
+    font-weight: bold;
+    color: var(--second-color);
+}
+.products-card:hover .product-container-title{
+    display: none;
 }
 .services{
     display: flex;
@@ -288,21 +325,18 @@ p {
 }
 
 .hero-image-fletes{
-    background-image: var(--image-fletes);
+    background-image: url('./assets/bateaPhone.jpg');
     width: 100%;
-    background-repeat: repeat;
-    background-size: contain;
+    background-repeat: no-repeat;
+    background-size: cover;
     background-position: center;
-    /* background-attachment: fixed; */
-    
 }
 .hero-image-hidrogrua{
-    background-image: var(--image-hidrogrua);
+    background-image: url('./assets/hidrogruaPhone.jpg');
     width: 100%;
-    background-repeat: repeat;
-    background-size:contain;
+    background-repeat: no-repeat;
+    background-size:cover;
     background-position: center;
-    /* background-attachment: fixed; */
 }
 .servicios-opacity{
     width: 100%;
@@ -319,10 +353,17 @@ p {
     font-weight: bold;
     color: var(--white-color);
 }
-
-@media screen and (min-widht: 768px){
-    
+@media screen and (min-width: 768px){
+    .section > .container{
+        display: grid;
+        grid-template-columns: repeat(2, 50%);
+        /* justify-content: space-between; */
+    }
+    .section .section-title{
+        grid-column: span 2;
+    }
 }
+
 @media screen and (min-width: 1024px){
     .header {
         position: sticky;
@@ -346,6 +387,15 @@ p {
         align-items: center;
     }
 
+    .section > .container{
+        grid-template-columns: repeat(3, 1fr);
+        /* justify-content: space-between; */
+    }
+    .section .section-title{
+        grid-column: span 3;
+    }
+    
+    
     /* *** PRODUCTOS Y SERVICIOS *** */
 
     .services{
