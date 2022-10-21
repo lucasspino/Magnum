@@ -7,6 +7,7 @@
  --second-color:#141312;
  --second-text-alpha-color: #1f1e1d9f;
  --white-color: rgb(255, 255, 255);
+ --grey-color:rgb(197, 197, 197);
  --first-alpha-color:#ff914dc2;
  --white-alpha-color: rgba(255, 255, 255, 0.5);
  --black-alpha-color: rgba(0, 0, 0, 0.5);
@@ -79,7 +80,73 @@ p {
     line-height: 1.6;
 }
 /* ********** Contact Form ********** */
-
+.contact-form{
+    margin: 2rem auto;
+    padding: 1rem;
+    max-width: 800px;
+}
+.contact-form > *{
+    padding: 0.5rem;
+    margin: 1rem auto;
+    display: block;
+    width: 100%;
+}
+.contact-form input,    
+.contact-form textarea{
+    font-size: .85rem;
+    font-family: var(--font);
+}
+.contact-form input{
+    border: 0;
+    padding-left: 0;
+    border-bottom: thin solid var(--grey-color);
+}
+.contact-form textarea{
+    border: thin solid var(--grey-color);
+    resize: none;
+}
+.contact-form input[type="submit"]{
+    margin-top: 0;
+    cursor: pointer;
+    transition: all .5s ease-out;
+}
+.contact-form input[type="submit"]:hover{
+    opacity: .75;
+}
+.contact-form *::placeholder{
+    color:var(--grey-color)
+}
+.contact-formresponse{
+    padding: 1rem;
+    width: 400px;
+    text-align: center;
+    background-color: var(--white-color);
+}
+.modal#gracias:target{
+    opacity:1;
+    pointer-events: auto;
+}
+.contact-form-loader{
+text-align: center;
+}
+@media screen and (min-width: 1024px){
+    .contact-form{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 1rem;
+    }
+    .contact-form input,    
+    .contact-form textarea{
+        font-size: 1rem;
+    }
+    .contact-form textarea,
+    .contact-form-loader{
+        grid-column: span 2;
+    }
+    .contact-form input[type="submit"]{
+        margin-left: 0;
+    }
+}
 /* *** HERO IMAGE *** */
 .hero-image{
     background-image: url(./assets/heroimage.jpg);
